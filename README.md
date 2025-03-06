@@ -1,6 +1,6 @@
 # Termina
 
-Welcome to **Termina**! Inspired by The Legend of Zelda series, Termina is a multi-component project consisting of a RESTful API backend, a React-based web frontend, and Python CLI tools. This project provides a seamless music player experience with a shell-like interface.
+Welcome to **Termina**! Inspired by a few past projects, Termina is a multi-component project consisting of a RESTful API backend, a React-based web frontend, and Python CLI tools. This project provides a seamless music player experience with a shell-like interface.
 
 ## Overview
 
