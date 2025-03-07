@@ -1,28 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
-using MusicShellApi.Models;
 using MusicShellApi.Mediators.Interfaces;
-using System;
-using System.Collections.Generic;
+using MusicShellApi.Data.Dtos;
 
 namespace MusicShellApi.Controllers
 {
+    /// <summary>
+    /// Controller for managing music playback and song information.
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class MusicController : ControllerBase
     {
         private readonly IMusicMediator _musicMediator;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MusicController"/> class.
+        /// </summary>
+        /// <param name="musicMediator">The music mediator to control music playback and fetch song information.</param>
         public MusicController(IMusicMediator musicMediator)
         {
             _musicMediator = musicMediator;
         }
 
+        /// <summary>
+        /// Get all songs in the playlist.
+        /// </summary>
+        /// <returns>List of SongInfoDto objects.</returns>
         [HttpGet("songs")]
-        public ActionResult<List<SongInfo>> GetAllSongs()
+        public ActionResult<List<SongInfoDto>> GetAllSongs()
         {
             try
             {
-                return Ok(_musicMediator.GetAllSongInfos());
+                var songs = _musicMediator.GetAllSongInfos();
+                return Ok(songs);
             }
             catch (Exception ex)
             {
@@ -31,12 +41,18 @@ namespace MusicShellApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Get a specific song by index.
+        /// </summary>
+        /// <param name="index">Index of the song.</param>
+        /// <returns>SongInfoDto object.</returns>
         [HttpGet("songs/{index}")]
-        public ActionResult<SongInfo> GetSong(int index)
+        public ActionResult<SongInfoDto> GetSong(int index)
         {
             try
             {
-                return Ok(_musicMediator.GetSongInfo(index));
+                var song = _musicMediator.GetSongInfo(index).ToDto();
+                return Ok(song);
             }
             catch (ArgumentOutOfRangeException ex)
             {
@@ -50,6 +66,10 @@ namespace MusicShellApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Play the currently selected song.
+        /// </summary>
+        /// <returns>Message indicating the playback status.</returns>
         [HttpPost("play")]
         public ActionResult<string> Play()
         {
@@ -65,6 +85,10 @@ namespace MusicShellApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Pause the currently playing song.
+        /// </summary>
+        /// <returns>Message indicating the pause status.</returns>
         [HttpPost("pause")]
         public ActionResult<string> Pause()
         {
@@ -80,6 +104,10 @@ namespace MusicShellApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Stop the currently playing song.
+        /// </summary>
+        /// <returns>Message indicating the stop status.</returns>
         [HttpPost("stop")]
         public ActionResult<string> Stop()
         {
@@ -95,6 +123,10 @@ namespace MusicShellApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Play the next song in the playlist.
+        /// </summary>
+        /// <returns>Message indicating the next song status.</returns>
         [HttpPost("next")]
         public ActionResult<string> Next()
         {
@@ -110,6 +142,10 @@ namespace MusicShellApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Play the previous song in the playlist.
+        /// </summary>
+        /// <returns>Message indicating the previous song status.</returns>
         [HttpPost("previous")]
         public ActionResult<string> Previous()
         {
@@ -125,16 +161,46 @@ namespace MusicShellApi.Controllers
             }
         }
 
+        /// <summary>
+        /// List all song titles in the playlist.
+        /// </summary>
+        /// <returns>JSON array of song titles.</returns>
         [HttpGet("list")]
-        public ActionResult<string> List()
+        public ActionResult<List<string>> List()
         {
             try
             {
-                return Ok(_musicMediator.List());
+                var songTitles = _musicMediator.List();
+                return Ok(songTitles);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"Error listing songs: {ex.Message}");
+                return NotFound(ex.Message);
+            }
+            catch (ApplicationException ex)
+            {
+                Console.WriteLine($"Error listing songs: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Get the currently playing song.
+        /// </summary>
+        /// <returns>SongInfoDto object for the currently playing song.</returns>
+        [HttpGet("current")]
+        public ActionResult<SongInfoDto> GetCurrentSong()
+        {
+            try
+            {
+                var song = _musicMediator.GetCurrentSong().ToDto();
+                return Ok(song);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error listing songs: {ex.Message}");
+                Console.WriteLine($"Error fetching currently playing song: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
