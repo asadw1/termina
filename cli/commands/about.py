@@ -3,7 +3,7 @@ def display_about():
     Termina: Your Personal Unix-style Shell for Seamless Music Playback
 
     Version: 1.0.0
-    Developed by: Your Name/Your Company
+    Developed by: Asad W.
 
     Termina is a powerful and intuitive command-line interface designed to provide a seamless music playback experience. With a range of commands at your disposal, you can easily control your music, navigate through your playlist, and enjoy your favorite tunes without leaving the terminal.
 
