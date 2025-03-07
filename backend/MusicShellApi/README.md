@@ -10,7 +10,7 @@ The `MusicShellApi` is a RESTful API built using ASP.NET Core. It serves as the 
 - Future-proof design to support streaming services integration.
 
 ## Folder Structure
-```plaintext
+```
 # MusicShellApi
 
 ## Folder Structure
