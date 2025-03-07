@@ -11,10 +11,20 @@ The `MusicShellApi` is a RESTful API built using ASP.NET Core. It serves as the 
 
 ## Folder Structure
 ```plaintext
+# MusicShellApi
+
+## Folder Structure
+
+```plaintext
 MusicShellApi/
 │
 ├── Controllers/
 │   └── MusicController.cs
+│
+├── Data/
+│   ├── Dtos/
+│   ├── Entities/
+│   └── Models/
 │
 ├── Mediators/
 │   ├── Interfaces/
@@ -50,6 +60,7 @@ MusicShellApi/
 ├── Program.cs
 ├── appsettings.json
 └── appsettings.Development.json
+
 ```
 
 ## Setup
