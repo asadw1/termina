@@ -31,7 +31,7 @@ namespace MusicShellApi.Controllers
         {
             try
             {
-                var songs = _musicMediator.GetAllSongInfos();
+                var songs = _musicMediator.GetAllSongInfoDtos();
                 return Ok(songs);
             }
             catch (Exception ex)

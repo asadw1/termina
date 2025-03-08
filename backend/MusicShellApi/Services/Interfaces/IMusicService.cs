@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MusicShellApi.Data.Dtos;
 using MusicShellApi.Data.Models;
 
 namespace MusicShellApi.Services.Interfaces
@@ -62,5 +63,11 @@ namespace MusicShellApi.Services.Interfaces
         /// </summary>
         /// <returns>SongInfo object for the currently playing song.</returns>
         SongInfo GetCurrentSong();
+
+        /// <summary>
+        /// Get information about all songs in the playlist as DTOs.
+        /// </summary>
+        /// <returns>List of SongInfoDto objects.</returns>
+        List<SongInfoDto> GetAllSongInfoDtos();
     }
 }

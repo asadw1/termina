@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using MusicShellApi.Services.Interfaces;
 using MusicShellApi.Data.Models;
+using MusicShellApi.Data.Dtos;
 
 namespace MusicShellApi.Services.Implementation
 {
@@ -197,6 +198,21 @@ namespace MusicShellApi.Services.Implementation
 
             return playlist[currentSongIndex];
         }
+        /// <summary>
+        /// Get information about all songs in the playlist as DTOs.
+        /// </summary>
+        /// <returns>List of SongInfoDto objects.</returns>
+        public List<SongInfoDto> GetAllSongInfoDtos()
+        {
+            var songs = GetAllSongInfos(); // Assuming this method already exists
+            var songsDto = new List<SongInfoDto>();
 
+            foreach (var song in songs)
+            {
+                songsDto.Add(song.ToDto());
+            }
+
+            return songsDto;
+        }
     }
 }
