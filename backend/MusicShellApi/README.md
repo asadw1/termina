@@ -102,11 +102,11 @@ You can update these files with your settings as needed.
 ## Usage
 
 ### API Endpoints
-- **GET /api/music/play**: Plays the current song.
-- **GET /api/music/pause**: Pauses the current song.
-- **GET /api/music/stop**: Stops the music.
-- **GET /api/music/next**: Plays the next song.
-- **GET /api/music/previous**: Plays the previous song.
+- **POST /api/music/play**: Plays the current song.
+- **POST /api/music/pause**: Pauses the current song.
+- **POST /api/music/stop**: Stops the music.
+- **POST /api/music/next**: Plays the next song.
+- **POST /api/music/previous**: Plays the previous song.
 - **GET /api/music/list**: Lists all available songs.
 - **GET /api/music/song/{index}**: Gets information about a specific song by index.
 
