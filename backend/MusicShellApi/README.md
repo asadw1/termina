@@ -91,6 +91,19 @@ MusicShellApi/
    dotnet run
    ```
 
+To test the API successfully, you need to have a `MusicFiles` folder in the backend directory. This folder should contain the music files used by the application.
+
+Here's the structure:
+
+```plaintext
+D:\Development\termina\backend
+│
+├── MusicFiles
+├── MusicShellApi
+├── MusicShellApi.Tests
+└── shell-music-player.sln
+```
+
 ### Configuration
 The API uses configuration files to manage settings.
 
