@@ -113,12 +113,12 @@ You can update these files with your settings as needed.
 ### Example Requests
 1. **Play a Song**:
    ```http
-   GET /api/music/play
+   POST /api/music/play
    ```
 
 2. **Pause a Song**:
    ```http
-   GET /api/music/pause
+   POST /api/music/pause
    ```
 
 3. **Get Song Information**:
