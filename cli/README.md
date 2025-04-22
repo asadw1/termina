@@ -80,11 +80,3 @@ For more information, visit our website: github.com/asadw1
 
 
 Thank you for using Termina!
-
-Updated README on 2025-04-04 16:51:22.560641
-Updated README on 2025-04-07 18:00:02.770563
-Updated README on 2025-04-08 12:00:05.352695
-Updated README on 2025-04-15 12:00:24.936233
-Updated README on 2025-04-15 18:00:03.060486
-Updated README on 2025-04-16 12:00:04.445347
-Updated README on 2025-04-21 18:00:02.120379
