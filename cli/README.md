@@ -76,37 +76,7 @@ Key Features:
 - Access detailed information about the currently playing song
 - Keep track of your command history
 
-For more information, visit our website: github.com/asadw1 
+For more information, visit: github.com/asadw1 
 
 
 Thank you for using Termina!
-
-Updated README on 2025-05-07 12:00:09.464499
-Updated README on 2025-05-07 18:00:01.835281
-Updated README on 2025-05-09 18:00:07.744926
-Updated README on 2025-05-10 18:00:03.243133
-Updated README on 2025-05-12 12:00:08.196164
-Updated README on 2025-05-14 12:00:08.152395
-Updated README on 2025-05-19 18:00:01.910206
-Updated README on 2025-05-23 18:00:06.505013
-Updated README on 2025-05-29 18:00:02.086302
-Updated README on 2025-05-30 12:00:04.032771
-Updated README on 2025-06-02 12:00:03.874228
-Updated README on 2025-06-04 12:00:08.069137
-Updated README on 2025-06-05 18:00:02.120342
-Updated README on 2025-06-11 12:00:04.517737
-Updated README on 2025-06-12 12:00:04.289853
-Updated README on 2025-06-13 18:00:04.642870
-Updated README on 2025-06-16 12:00:04.383201
-Updated README on 2025-06-17 12:00:04.649333
-Updated README on 2025-06-23 12:00:03.604353
-Updated README on 2025-06-25 12:00:03.854776
-Updated README on 2025-06-30 18:00:02.150516
-Updated README on 2025-07-01 12:00:04.523498
-Updated README on 2025-07-01 18:00:02.261835
-Updated README on 2025-07-02 12:00:03.936412
-Updated README on 2025-07-03 12:00:09.001591
-Updated README on 2025-07-07 12:00:03.508292
-Updated README on 2025-07-11 12:00:09.624023
-Updated README on 2025-07-12 18:00:06.706616
-Updated README on 2025-07-14 18:00:09.526843
