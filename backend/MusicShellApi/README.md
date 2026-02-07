@@ -115,12 +115,14 @@ You can update these files with your settings as needed.
 ## Usage
 
 ### API Endpoints
+- `Swagger`: can be found on **http://localhost:5000/swagger/index.html**
 - **POST /api/music/play**: Plays the current song.
 - **POST /api/music/pause**: Pauses the current song.
 - **POST /api/music/stop**: Stops the music.
 - **POST /api/music/next**: Plays the next song.
 - **POST /api/music/previous**: Plays the previous song.
 - **GET /api/music/list**: Lists all available songs.
+- **GET /api/music/songs**: Lists all available songs with full metadata.
 - **GET /api/music/song/{index}**: Gets information about a specific song by index.
 
 ### Example Requests
