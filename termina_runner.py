@@ -249,7 +249,7 @@ def main() -> None:
         pids_to_kill.append(cli_proc.pid)
         
         print("\n" + "="*60)
-        print("TERMINE READY - ENTERPRISE MODE")
+        print("TERMINA READY - LAUNCHER MODE")
         print("="*60)
         print(f"• Backend: http://localhost:5000 ✓")
         print(f"• CLI:    {CLI_COLS} columns x {CLI_ROWS} rows ✓")
