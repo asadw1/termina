@@ -24,6 +24,20 @@ termina/
 └── cli/
     └── [Python CLI tools files]
 ```
+## Quick Start - One-Click Runner
+
+**From repo root** (where `termina_runner.py` lives):
+
+**Windows:**
+```cmd
+pip install requests psutil
+python termina_runner.py
+```
+**Linux/MacOS**
+```cmd
+pip install requests psutil
+python3 termina_runner.py
+```
 
 ## Getting Started
 
@@ -48,5 +62,4 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For questions or support, please reach out to the project maintainer at [youremail@example.com].
-
+For questions or support, please reach out to the project maintainer.
