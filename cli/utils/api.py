@@ -35,5 +35,14 @@ def next_song():
 def previous_song():
     return send_request("previous", method='POST')
 
-def current_song(index):
-    return send_request(f"songs/{index}")
+def current_song():  # Remove index parameter
+    return send_request("current")  # NOT "songs/{index}"
+
+def get_all_songs():
+    return send_request("songs")
+
+def list_songs():
+    return send_request("list")
+
+
+

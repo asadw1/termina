@@ -8,6 +8,8 @@ from commands.about import display_about
 from commands.clear_screen import clear_screen
 from utils.sanitization import sanitize_input
 from utils.history import add_to_history, print_history
+from commands.songs import execute as show_songs
+from commands.ls import execute as list_titles
 
 def stop_playback_on_exit():
     try:
@@ -27,9 +29,11 @@ def handle_command(command):
     elif command == "previous":
         previous_song()
     elif command == "current":
-        index = input("Enter the song index: ").strip()
-        index = sanitize_input(index)
-        current_song(index)
+        current_song()
+    elif command == "songs":
+        show_songs()
+    elif command == "ls":
+        list_titles()
     elif command == "history":
         print_history()
     elif command == "about":
@@ -37,7 +41,19 @@ def handle_command(command):
     elif command in ["cls", "clear"]:
         clear_screen()
     elif command == "help":
-        print("Available commands: play, pause, stop, next, previous, current, history, about, cls, clear, help, exit")
+        print("\nTermina Commands:")
+        print("  current    Show currently playing song")
+        print("  songs      Full song list w/ current indicator") 
+        print("  ls         Quick song titles list")
+        print("  play       Play current/next song")
+        print("  pause      Pause playback")
+        print("  stop       Stop playback")
+        print("  next       Next song")
+        print("  previous   Previous song")
+        print("  history    Command history")
+        print("  about      Show Termina info")
+        print("  cls/clear  Clear screen")
+        print("  exit       Stop playback & quit\n")
     elif command == "exit":
         stop_playback_on_exit()
         print("Exiting Termina. Goodbye!")
