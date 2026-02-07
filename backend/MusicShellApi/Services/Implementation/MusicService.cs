@@ -2,6 +2,7 @@ using Microsoft.Extensions.Configuration;
 using NAudio.Wave;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using MusicShellApi.Services.Interfaces;
 using MusicShellApi.Data.Models;
 using MusicShellApi.Data.Dtos;
@@ -26,9 +27,27 @@ namespace MusicShellApi.Services.Implementation
         {
             this.musicProvider = musicProviderFactory.CreateMusicProvider();
             wavePlayer = new WaveOutEvent();
+            
+            // SAFE auto-advance - no race condition
+            wavePlayer.PlaybackStopped += (sender, args) => {
+                _ = Task.Run(async () => {
+                    try 
+                    {
+                        await Task.Delay(200); // Let any pending stops complete
+                        if (currentSongIndex < musicProvider.GetPlaylist().Count - 1)
+                        {
+                            currentSongIndex++;
+                            Play(); // Safe - always inits fresh AudioFileReader
+                        }
+                    }
+                    catch { /* Silent fail on auto-advance */ }
+                });
+            };
+            
             currentSongIndex = 0;
             audioFileReader = null;
         }
+
 
         /// <summary>
         /// Gets all song information in the playlist.
@@ -57,18 +76,18 @@ namespace MusicShellApi.Services.Implementation
         {
             try
             {
+                // ALWAYS cleanup first
+                if (audioFileReader != null)
+                {
+                    audioFileReader.Dispose();
+                    audioFileReader = null;
+                }
+                
                 var playlist = musicProvider.GetPlaylist();
-                if (playlist.Count == 0)
-                {
-                    return "No songs available in the playlist.";
-                }
+                if (playlist.Count == 0) return "No songs available.";
 
-                if (audioFileReader == null)
-                {
-                    audioFileReader = new AudioFileReader(playlist[currentSongIndex].FilePath);
-                    wavePlayer.Init(audioFileReader);
-                }
-
+                audioFileReader = new AudioFileReader(playlist[currentSongIndex].FilePath);
+                wavePlayer.Init(audioFileReader);
                 wavePlayer.Play();
                 return $"Playing: {playlist[currentSongIndex].Title}";
             }
@@ -78,6 +97,7 @@ namespace MusicShellApi.Services.Implementation
                 return "Error playing song.";
             }
         }
+
 
         /// <summary>
         /// Pauses the currently playing song.
