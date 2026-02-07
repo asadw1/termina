@@ -76,7 +76,7 @@ Key Features:
 - Access detailed information about the currently playing song
 - Keep track of your command history
 
-For more information, visit our website: github.com/asadw1 
+For more information, visit: github.com/asadw1 
 
 
 Thank you for using Termina!
