@@ -1,6 +1,7 @@
 # Termina
 
-<img width="1442" height="456" alt="image" src="https://github.com/user-attachments/assets/f73e5324-b94c-4593-a51a-d93f73055951" />
+<img width="1337" height="456" alt="image" src="https://github.com/user-attachments/assets/a9909483-6f79-456c-870a-d877faeceb5c" />
+
 
 ---
 
