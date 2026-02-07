@@ -1,5 +1,9 @@
 # Termina
 
+<img width="1442" height="456" alt="image" src="https://github.com/user-attachments/assets/f73e5324-b94c-4593-a51a-d93f73055951" />
+
+---
+
 Welcome to **Termina**! Inspired by a few past projects, Termina is a multi-component project consisting of a RESTful API backend, a React-based web frontend, and Python CLI tools. This project provides a seamless music player experience with a shell-like interface.
 
 ## Overview
