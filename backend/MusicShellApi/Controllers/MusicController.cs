@@ -198,6 +198,11 @@ namespace MusicShellApi.Controllers
                 var song = _musicMediator.GetCurrentSong().ToDto();
                 return Ok(song);
             }
+            catch (InvalidOperationException ex)
+            {
+                // This is the clean way to tell the CLI "Nothing is playing"
+                return NotFound(new { message = ex.Message });
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error fetching currently playing song: {ex.Message}");

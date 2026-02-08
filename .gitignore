@@ -8,3 +8,4 @@ MusicFiles/
 
 # Ignore .editorconfig file
 .editorconfig
+.vscode/

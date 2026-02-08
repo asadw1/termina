@@ -37,8 +37,15 @@ namespace MusicShellApi.Services.Providers
         {
             if (fileSystem.DirectoryExists(folderPath))
             {
-                var files = fileSystem.GetFiles(folderPath, "*.mp3");
-                playlist.AddRange(files);
+                var allowedExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase) 
+                { 
+                    ".mp3", ".wav", ".flac", ".m4a" 
+                };
+
+                var allFiles = fileSystem.GetFiles(folderPath, "*.*");
+                var filteredFiles = allFiles.Where(f => allowedExtensions.Contains(Path.GetExtension(f)));
+                
+                playlist.AddRange(filteredFiles);
             }
         }
 

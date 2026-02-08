@@ -10,6 +10,7 @@ def execute():
             print(f"Duration: {result['duration']}")
             print(f"Artist: {result['artist']}")
         else:
-            print(ERROR_COMMAND_FAILED.format('current'))
+            # Instead of assuming failure, assume the player is stopped
+            print("No song is currently playing.")
     except Exception as e:
         print(f"An unexpected error occurred while executing 'current' command: {e}")

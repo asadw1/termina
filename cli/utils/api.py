@@ -8,6 +8,12 @@ def send_request(endpoint, method='GET', data=None):
             response = requests.post(url, json=data)
         else:
             response = requests.get(url)
+        # --- NEW LOGIC START ---
+        # If it's a 404, we just return None silently without raising an error.
+        # This handles the "nothing is playing" state.
+        if response.status_code == 404:
+            return None
+        # --- NEW LOGIC END ---
         response.raise_for_status()
         return response.json()
     except requests.exceptions.ConnectionError:
